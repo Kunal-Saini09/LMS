@@ -126,11 +126,11 @@ public class IssueReturnView {
                  PreparedStatement ps2 = con.prepareStatement(updateQty)) {
 
                 ps1.setDate(1, java.sql.Date.valueOf(today));
-                ps1.setString(2, ir.student.studentId);
-                ps1.setString(3, ir.book.bookId);
+                ps1.setString(2, ir.student.getStudentId());
+                ps1.setString(3, ir.book.getBookId());
                 ps1.executeUpdate();
 
-                ps2.setString(1, ir.book.bookId);
+                ps2.setString(1, ir.book.getBookId());
                 ps2.executeUpdate();
 
                 con.commit();

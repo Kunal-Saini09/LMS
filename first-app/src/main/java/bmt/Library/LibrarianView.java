@@ -86,7 +86,7 @@ public class LibrarianView {
         String sql = "DELETE FROM Librarian WHERE librarianId = ?";
         try (Connection con = DBHelper.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
-            ps.setString(1, l.librarianId);
+            ps.setString(1, l.getLibrarianId());
             ps.executeUpdate();
             loadLibrarians();
         } catch (SQLException ex) {

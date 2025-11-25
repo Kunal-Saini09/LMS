@@ -96,7 +96,7 @@ public class BookView {
         String sql = "DELETE FROM Book WHERE bookId = ?";
         try (Connection con = DBHelper.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
-            ps.setString(1, b.bookId);
+            ps.setString(1, b.getBookId());
             ps.executeUpdate();
             loadBooks();
         } catch (SQLException ex) {

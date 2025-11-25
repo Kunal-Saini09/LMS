@@ -66,7 +66,7 @@ public class LibraryMain extends Application {
     System.out.printf("%-10s %-25s %-20s %-10s\n", "Book ID", "Title", "Publisher", "Quantity");
     for (Book book : books)
         {
-        System.out.printf("%-10s %-25s %-20s %-10d\n", book.bookId, book.title, book.publisher, book.quantity);
+        System.out.printf("%-10s %-25s %-20s %-10d\n", book.getBookId(), book.getTitle(), book.getPublisher(), book.getQuantity());
         }
     System.out.println();
     }
@@ -74,14 +74,14 @@ public class LibraryMain extends Application {
 
     static Book findBookById(String bookId) {
         for (Book book : books) {
-            if (book.bookId.equals(bookId)) return book;
+            if (book.getBookId().equals(bookId)) return book;
         }
         return null;
     }
 
     static Librarian findLibrarianById(String libId) {
         for (Librarian librarian : librarians) {
-            if (librarian.librarianId.equals(libId)) return librarian;
+            if (librarian.getLibrarianId().equals(libId)) return librarian;
         }
         return null;
     }
@@ -100,7 +100,7 @@ public class LibraryMain extends Application {
         String bid = sc.nextLine();
 
         Book book = findBookById(bid);
-        if (book != null && book.quantity > 0) {
+        if (book != null && book.getQuantity() > 0) {
             book.removeQuantity(1);
             transactions.add(new IssueReturn(student, book, LocalDate.now()));
             System.out.println("Book issued successfully!");
@@ -116,7 +116,7 @@ public class LibraryMain extends Application {
         String bid = sc.nextLine();
 
         for (IssueReturn ir : transactions) {
-            if (ir.student.studentId.equals(sid) && ir.book.bookId.equals(bid) && ir.returnDate == null) {
+            if (ir.student.getStudentId().equals(sid) && ir.book.getBookId().equals(bid) && ir.returnDate == null) {
                 ir.returnBook(LocalDate.now());
                 ir.book.addQuantity(1);
                 System.out.println("Book returned successfully!");
@@ -207,14 +207,6 @@ public class LibraryMain extends Application {
     
 
     public static void main(String[] args) {
-        // Sample librarian
-        librarians.add(new Librarian("lib001", "Mrs. Pooja", "pass123"));
-        librarians.add(new Librarian("lib002","Mr. Manoj","pass456"));
-
-        // Sample books
-        books.add(new Book("b001", "Java Basics", "Oracle", 5));
-        books.add(new Book("b002", "Data Structures", "McGraw Hill", 3));
-        
         launch(args);
     }
 }

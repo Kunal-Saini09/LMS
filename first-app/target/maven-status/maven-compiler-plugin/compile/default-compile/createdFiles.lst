@@ -1,4 +1,5 @@
 bmt\LibraryMain.class
+bmt\DBConnectionTest.class
 bmt\Library\IssueReturnView.class
 bmt\Library\Librarian.class
 bmt\Library\LibrarianView.class
@@ -8,6 +9,7 @@ bmt\PrimaryController.class
 module-info.class
 bmt\Library\IssueReturn.class
 bmt\Library\Book.class
+bmt\InsertSampleData.class
 bmt\Library\Student.class
 bmt\SecondaryController.class
 bmt\Library\DBHelper.class

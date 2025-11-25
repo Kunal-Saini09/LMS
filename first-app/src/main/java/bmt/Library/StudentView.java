@@ -89,7 +89,7 @@ public class StudentView {
         String sql = "DELETE FROM Student WHERE studentId = ?";
         try (Connection con = DBHelper.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
-            ps.setString(1, s.studentId);
+            ps.setString(1, s.getStudentId());
             ps.executeUpdate();
             loadStudents();
         } catch (SQLException ex) {
