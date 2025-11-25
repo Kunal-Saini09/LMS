@@ -1,0 +1,22 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "xprotocol",
+                "enableSsl": "Disabled"
+            },
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 33060,
+            "driver": "MySQL",
+            "name": "New",
+            "database": "Library",
+            "username": "root",
+            "password": "Kunal@0906",
+            "connectionTimeout": 500
+        }
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.format.settings.url": ".vscode/java-formatter.xml"
+}
